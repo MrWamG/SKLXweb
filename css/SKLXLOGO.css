@@ -1,0 +1,210 @@
+/* .containerSKLX{
+    width: 700px;
+    height: 700px;
+    position: relative;
+    transition: all 0.5s ease;
+} */
+.example{
+    background: url('../img/SKLX.jpg');
+    background-size: 700px;
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 999;
+}
+.logoBigBox{
+    width: 700px;
+    height: 700px;
+    position: relative;
+}
+.outsideCircleBigBox,.insideBallBigBox,.outsideDotBigBox,.insideLineBigBox{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.outsideCircle1{
+    fill: none;
+    stroke:#1772b4;
+    stroke-width: 22px;
+    stroke-dasharray: 303%;/* 370% / 303% */
+    stroke-dashoffset: 303%;
+    transition: all 0.6s ease;
+    transform: rotate(-40deg);
+    transform-origin: 350px;
+    animation: outsideCircle 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.outsideCircle2{
+    fill: none;
+    stroke:#1772b4;
+    stroke-width: 22px;
+    stroke-dasharray: 303%;/* 370% / 303% */
+    stroke-dashoffset: 303%;
+    transition: all 0.6s ease;
+    transform: rotate(50deg);
+    transform-origin: 350px;
+    animation: outsideCircle 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.outsideCircle3{
+    fill: none;
+    stroke:#1772b4;
+    stroke-width: 22px;
+    stroke-dasharray: 303%;/* 370% / 303% */
+    stroke-dashoffset: 303%;
+    transition: all 0.6s ease;
+    transform: rotate(140deg);
+    transform-origin: 350px;
+    animation: outsideCircle 0.8s ease;
+    animation-fill-mode: forwards;
+}
+.outsideCircle4{
+    fill: none;
+    stroke:#1772b4;
+    stroke-width: 22px;
+    stroke-dasharray: 303%;/* 370% / 303% */
+    stroke-dashoffset: 303%;
+    transition: all 0.6s ease;
+    transform: rotate(230deg);
+    transform-origin: 350px;
+    animation: outsideCircle 0.8s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes outsideCircle{
+    0%{
+        stroke-dasharray: 303%;
+        stroke-dashoffset: 303%;
+    }
+    100%{
+        stroke-dasharray: 370%;
+        stroke-dashoffset: 303%;
+    }
+}
+.outsideDot1{
+    fill: #1772b4;
+    animation: outsideDot1 0.6s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 0.4s;
+    r:0;
+}
+@keyframes outsideDot1{
+    0%{
+        r:0;
+    }
+    100%{
+        r:17;
+    }
+}
+.insideBall{
+    fill: #1772b4;
+    r:0;
+    animation: insideBall 0.8s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes insideBall{
+    0%{
+        r:0;
+    }
+    100%{
+        r:270;
+    }
+}
+.line1{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 390px;
+    left: 347px;
+    background: #fff;
+    transform: skew(45deg);
+    transition: all 0.8s ease;
+}
+.insideLineFill{
+    fill: #fff;
+    transition: all 0.5s ease;
+}
+.insideLine1{
+    d:path('M348 440 L348 440 405 406 405 406');
+    transition:all 0.6s ease;
+    animation:insideLine1 0.6s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 0.6s;
+}
+@keyframes insideLine1{
+    0%{
+        d:path('M348 440 L348 440 405 406 405 406')
+    }
+    100%{
+        d:path('M348 440 L184 344 241 312 405 406');
+    }
+}
+.insideLine2{
+    d:path('M183.2 345 L185 344 242.85 312 241 313');
+    transition: all 0.6s ease;
+    animation: insideLine2 0.6s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 1.1s;
+    opacity: 0;
+}
+@keyframes insideLine2{
+    0%{
+        opacity: 1;
+    }
+    1%{
+        d:path('M183.2 345 L185 344 242.85 312 241 313');
+        opacity: 1;
+    }
+    100%{
+        d:path('M184.3 345 L185 239 242 271 241 313');
+        opacity: 1;
+    }
+}
+/* .insideLine3{
+    d:path('M241.3 269 L185 239 241 323');
+    transition: all 0.6s ease;
+} */
+.insideLine4{
+    d:path('M187.8 240.3 L183.85 239.25 241 269 240 268');
+    transition: all 0.6s ease;   
+    animation: insideLine4 0.6s ease;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-delay: 1.6s;
+}
+@keyframes insideLine4{
+    0%{
+        opacity: 1;
+    }
+    1%{
+        d:path('M187.8 240.3 L183.85 239.25 242 271 242 271');
+        opacity: 1;
+    }
+    100%{
+        d:path('M346.8 145.3 L184.85 239.25 241 272 346 212');
+        opacity: 1;
+    }
+}
+.insideLine5{
+    d:path('M346.3 145.3 L344.85 146 344 214 343.3 212');
+    transition: all 0.6s ease;   
+    animation:insideLine5 0.6s ease;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-delay: 2.1s;
+}
+@keyframes insideLine5{
+    0%{
+        opacity: 1;
+    }
+    1%{
+        d:path('M346.3 145.3 L344.85 146 344 214 343.3 212');
+        opacity: 1;
+    }
+    100%{
+        d:path('M346.3 145.3 L616.85 303 635 380 343.3 212');
+        opacity: 1;
+    }
+}

@@ -1,0 +1,265 @@
+body,html{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 0px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(23,114,180,1);
+}
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    border-radius: 0;
+    /* background: rgba(23,114,180,0); */
+    background: #000;
+}
+.container{
+    /* width: 1200px;
+    height: 200vh; */
+    width: 100%;
+    height: 3000px;
+    /* background: #dce2ef; */
+    background: #fff;
+}
+.inIndex{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: white;
+    transition: all 1s ease;
+    top: 0%;
+    z-index: 999;
+    animation: inIndex 1s ease;
+    animation-fill-mode: forwards;
+}
+.logoBigBox:hover .insideLineFill{
+    fill: #c1cff5;
+}
+.logoBigBox:hover .logoDesC{
+    color: #c1cff5;
+}
+.logoBigBox:hover .logoDesE{
+    color: #c1cff5;
+}
+/* @keyframes inIndex{
+    0%{
+        height: 100%;
+    }
+    100%{
+        height: 0%;
+    }
+} */
+
+/* 开始头部构建 */
+.header{
+    width: 100%;
+    position: relative;
+    top: 0vh;
+}
+.mask{
+    height: 100vh;
+    position: relative;
+    background: rgba(13,26,72,1);
+    z-index: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+.mask>img{
+    width: 100%;
+    opacity: 0.3;
+}
+/* .navBarBigBox{
+    width: 100%;
+    height: 430px;
+    background: #fff;
+}
+.navItemBox{
+    position: relative;
+    top: 130px;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.navTitle{
+    position: relative;
+    top: 50px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    color: #333333;
+    letter-spacing: 2px;
+}
+.navItem{
+    width: 300px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    border-radius: 50%;
+} */
+.navBarBeforeBox{
+    position: absolute;
+    bottom: 0;
+    transform: translate(-50%);
+    left:50%;
+    width: 45%;
+    height: 70px;
+    display: flex;
+    z-index: 1;
+}
+.navBarNormalItem{
+    position: relative;
+    width: 25%;
+    height: 100%;
+    /* background: white; */
+    cursor: pointer;
+}
+.navBarNormalItemText{
+    position: absolute;
+    color: #4a5374;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+.navBarNormalItemBg{
+    position: absolute;
+    background: white;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.navBarTrapezoidRightItemBg{
+    position: absolute;
+    border-bottom: 70px solid white;
+    border-right: 50px solid transparent;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.navBarTrapezoidLeftItemBg{
+    position: absolute;
+    border-bottom: 70px solid white;
+    border-left: 50px solid transparent;
+    width: 100%;
+    left: -50px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.navBarNormalItem:hover .navBarTrapezoidLeftItemBg{
+    border-bottom: 70px solid #4a5374;
+    border-left: 50px solid transparent;
+    width: 100%;
+    left: -50px;
+}
+.navBarNormalItem:hover .navBarNormalItemText{
+    color: white;
+}
+.navBarNormalItem:hover .navBarNormalItemBg{
+    background: #4a5374;
+}
+.navBarNormalItem:hover .navBarTrapezoidRightItemBg{
+    border-bottom: 70px solid #4a5374;
+    border-right: 50px solid transparent;
+}
+.logoDesC{
+    color: white;
+    font-size: 140px;
+    font-weight: bold;
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: 86%;
+    white-space: nowrap;
+    letter-spacing: 5px;
+    transition: all 0.5s ease;
+}
+.logoDesE{
+    color: white;
+    font-size: 64px;
+    font-weight: bold;
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: 110%;
+    letter-spacing: 13px;
+    transition: all 0.5s ease;
+}
+/* 开始之后导航栏 */
+.afterNavBigBox{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transform: translate(0,-100%);
+    width: 100%;
+    height: 70px;
+    padding: 20px 20px;
+    background: white;
+    z-index: 2;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+}
+.afterNavLogoBigBox{
+    width: 210px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.afterNavLogoBigBox:hover .afterNavLogoDes{
+    color: #1772b4;
+}
+.afterNavLogoDes{
+    color: #4a5374;
+    transition: all 0.5s ease;
+}
+.afterNavLogoC{
+    font-weight: bold;
+    font-size:31px;
+}
+.afterNavLogoE{
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+.afterNavLogoBigBox:hover .logoSvg{
+    fill: #1772b4;
+}
+.logoSvg{
+    fill: #4a5374;
+    transition: all 0.5s ease;
+}
+.afterNavLogoHrefBox{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.afterNavLogoHrefItem{
+    color: #4a5374;
+    font-size: 22px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    font-weight: bold;
+}
+.afterNavLogoHrefItem:hover{
+    color: #1772b4;
+    font-size: 24px;
+}
+/* 结束之后导航栏 */
+
+/* 结束头部构建 */

@@ -1,0 +1,256 @@
+@font-face {
+    font-family: 'siyuan';
+    src: url('../fonts/SourceHanSansCN-Normal.otf');
+    src:
+      url('../fonts/SourceHanSansCN-Light.otf') format('otf'),
+      url('../fonts/SourceHanSansCN-Bold.otf') format('otf');
+    font-weight: lighter;
+    font-style: bold;
+}
+body,html{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    transition: all 0.8s ease;
+    /* overflow-x: hidden; */
+}
+::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 0px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(23,114,180,1);
+}
+::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    border-radius: 0;
+    background: rgba(23,114,180,0);
+}
+.height{
+    width: 100%;
+    height: 5000px;
+}
+.logoFixedBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
+.loginRelativeBox{
+    width: 700px;
+    height: 700px;
+    position: relative;
+    transition: all 0.8s ease;
+}
+
+.container{
+    width: 1903px;
+    height: 2000px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* 开始入场后动画 */
+/* .circulationTitleBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+} */
+.circulationTitleBox{
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+.circulationTitleC{
+    fill: #1772b4;
+    stroke: white;
+    stroke-width: 2px;
+    stroke-dasharray: 153%;
+    stroke-dashoffset:153%;
+    font-size: 150px;
+    font-weight: bold;
+    transition: all 3s ease;
+    animation: circulationTitleC 4s ease;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    font-family: 'siyuan';
+}
+.circulationTitleE{
+    fill: white;
+    stroke: white;
+    stroke-width: 5px;
+    stroke-dasharray: 153%;
+    stroke-dashoffset:153%;
+    font-size: 70px;
+    letter-spacing: 12px;
+    font-weight: bold;
+    transition: all 3s ease;
+    opacity: 1;
+}
+.circulationTitleCrunning{
+    transition: all 0.5s ease;
+    animation-play-state: running;
+}
+@keyframes circulationTitleC{
+    0%{
+        /* stroke-width: 5px; */
+        stroke-dashoffset:153%;
+        fill: #1772b4;
+    }70%{
+        /* stroke-width: 5px; */
+        stroke-dashoffset:0%;
+        fill: #1772b4;
+    }100%{
+        /* stroke-width: 0px; */
+        fill: #ffffff;
+    }
+}
+
+.logoBigBox{
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.insideLineFillBrightness{
+    fill: #fff;
+    transition: all 0.5s ease;
+}
+.logoBigBox:hover .insideLineFillBrightness{
+    fill: #b5b5b5;
+}
+.logInBigBox{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+.logInBigBoxRelative{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.languageBox{
+    position: fixed;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    top: 22px;
+    right: 22px;
+    cursor: pointer;
+}
+.mediaBox{
+    position: fixed;
+    bottom:30px;
+    left: 22px;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.mediaItem,.mediaSvg{
+    cursor: pointer;
+    /* transition: all 0.5s ease; */
+    transition: all 0.6s cubic-bezier(0.78, 0.07, 0, 1);
+}
+.mediaItem:hover .mediaSvg{
+    fill: #c8e1f3;
+}
+.moreFunBigBox{
+    position: fixed;
+    left: 22px;
+    top: 22px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.moreFunLine{
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+.moreFunBigBox:hover .moreFunLine{
+    background: #c8e1f3;
+}
+.moreFunBigBox:hover .Line2{
+    width: 100%;
+}
+.moreFunBigBox:hover .Line3{/* 此处不能被整合 */
+    width: 100%;
+}
+.Line1{
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    transform: rotate(0deg);
+}
+.Line2{
+    width: 80%;
+    top: 10px;
+    left: 0px;
+    transform: rotate(0deg);
+}
+.Line3{
+    width: 60%;
+    top: 20px;
+    left: 0px;
+    transform: rotate(0deg);
+}
+.newsBigBox{
+    /* width: 100px; */
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    cursor: pointer;
+}
+.newsText{
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 2px;
+    display: flex;
+}
+.newsText>div:nth-child(2){
+    margin-left: 5px;
+    transition: all 0.2s ease;
+}
+.newsUnderLineBox{
+    width: 100%;
+    height: 2px;
+    margin-top: 5px;
+    position: relative;
+    left: 0%;
+    /* background: white; */
+    overflow: hidden;
+    /* transition: width 0.8s ease; */
+}
+.newsUnderLine{
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background: #fff;
+    transition: all 0.6s cubic-bezier(0.78, 0.07, 0, 1);
+    left: -100%;
+}
+
+.newsBigBox:hover .newsUnderLine{
+    left: 0%;
+}
+/* 结束入场后动画 */
+
+.inIndex{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: white;
+    transition: all 1s ease;
+    top: 100%;
+    z-index: 999;
+}
