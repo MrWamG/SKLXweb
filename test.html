@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .handCallBigBox{
+            width: 60px;/* 220px */
+            height: 60px;/* 40px */
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.28s ease;
+            overflow: hidden;
+        }
+        .handleCallRelatvieBox{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .handleCallSvgBox{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            background: #2cebc0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+            z-index: 1;
+            cursor:pointer; 
+            transition: all 0.28s ease;
+        }
+        .handCallBigBox:hover .handleCallSvgBox{
+            background: #23f2c3;
+        }
+        .handleCallInputBox{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+        }
+        .handleCallInput{
+            width: 60%;
+            height: 100%;
+            border-radius: 40px 0px 0px 40px;
+            padding-left: 10px;
+            font-size: 18px;
+            box-sizing: border-box;
+            outline: none;
+            border:none;
+        }
+        .scBox{
+            width: 40%;
+            height: 100%;
+            border-radius: 0px 40px 40px 0px;
+            box-sizing: border-box;
+            display: flex;
+        }
+        .handleCallSubmit{
+            width: 50%;
+            height: 100%;
+            background: #2cebc0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 10px;
+            transition: all 0.5s ease;
+        }
+        .handleCallSubmit:hover{
+            background: #07ffc7;
+        }
+        .handleCallCancle{
+            width: 50%;
+            height: 100%;
+            background: #f56711;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 10px;
+            transition: all 0.5s ease;
+            border-radius: 0px 40px 40px 0px;
+        }
+        .handleCallCancle:hover{
+            background: #ff9000;
+        }
+    </style>
+</head>
+<body>
+    <div class="handCallBigBox" onmousedown="mouseDown()" onmouseup="mouseUp()">
+        <div class="handleCallRelatvieBox">
+            <div class="handleCallSvgBox">
+                <svg viewBox="0 0 1024 1024" width="35"><path d="M744.427 959.265h-0.019l-4.619-0.104c-107.473-5.497-252.61-106.652-388.285-270.596l-50.116-60.531C165.713 464.078 94.631 303.949 111.254 199.68 122.986 126.119 232.352 64.04 294.844 64.04c30.78 0 41.931 15.317 45.83 24.464 35.376 62.868 79.148 172.199 79.35 211.412l0.012 2.79-1 2.606c-7.802 20.612-25.26 30.487-40.661 39.197-20.29 11.466-31.821 18.995-33.23 40.67-0.418 6.578 5.256 36.502 94.766 146.842l38.269 46.21c89.758 105.928 117.998 117.33 124.61 118.273 21.645 3.01 31.837-6.48 47.404-23.544 11.851-12.994 25.296-27.74 47.479-30.989l2.809-0.4 2.762 0.586c39.088 8.243 139.142 72.725 195.942 120.597 8.201 5.443 22.513 21.602 11.18 57.299-17.778 56.063-95.281 139.212-165.94 139.212z" fill="#ffffff" p-id="2054"></path></svg>
+            </div>
+            <div class="handleCallInputBox">
+                <input type="text" class="handleCallInput" placeholder="请输入主呼号"/>
+                <div class="scBox">
+                    <div class="handleCallSubmit">挂机</div>
+                    <div class="handleCallCancle">取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var handCallBigBox = document.getElementsByClassName('handCallBigBox')[0];
+        var handleCallSvgBox = document.getElementsByClassName('handleCallSvgBox')[0];
+        var handleCallCancle = document.getElementsByClassName('handleCallCancle')[0];
+
+        // 开始点击效果
+        var handCallBoxIsOn = false;
+        handCallBigBox.onclick = function(){// 展开状态
+            if(handCallBoxIsOn == false){
+                handCallBigBox.style.height = "40px";
+                handCallBigBox.style.width = "220px";
+                handleCallSvgBox.style.opacity = "0";
+                handleCallSvgBox.style.cursor = "default";
+                handCallBoxIsOn = true;
+                setTimeout(function(){
+                    handleCallSvgBox.style.display = "none";
+                },280)
+            }else{
+                return false;
+            }
+        }
+        handleCallCancle.onclick = function(){// 关闭状态
+            if(handCallBoxIsOn == true){
+                handCallBigBox.style.height = "";
+                handCallBigBox.style.width = "";
+                handleCallSvgBox.style.opacity = "";
+                handleCallSvgBox.style.cursor = "";
+                handleCallSvgBox.style.display = "flex";
+                setTimeout(function(){
+                    handleCallSvgBox.style.opacity = "1";
+                    handCallBoxIsOn = false;
+                },1)
+            }
+        }
+        // 结束点击效果
+
+        // 开始拖拽
+        var targetX;
+        var targetY;
+        var moveSwitch = false;
+        var currentLeft;
+        var currentTop;
+        var handCallBigBox = document.getElementsByClassName('handCallBigBox')[0];
+
+        console.log(111111)
+        document.onmousemove = function (e) {
+            if (moveSwitch) {　　　　　　　　
+                if(handCallBoxIsOn == false){
+                    var x = e.clientX;　　　　　
+                    var y = e.clientY;　　　　　
+                    var distanceX = x - targetX;　　
+                    var distanceY = y - targetY;　　
+                    handCallBigBox.style.left = (distanceX + currentLeft) + "px";
+                    handCallBigBox.style.top = (distanceY + currentTop) + "px";　　
+                }
+            }
+        }
+
+        function mouseDown(e) {
+            if(handCallBoxIsOn == false){
+                e = e ? e : window.event;
+                moveSwitch = true;
+                targetX = e.clientX;
+                targetY = e.clientY;
+                currentLeft = handCallBigBox.offsetLeft;
+                currentTop = handCallBigBox.offsetTop;
+                handCallBigBox.style.transition = "none";
+            }
+        }
+        function mouseUp() {
+            if(handCallBoxIsOn == false){
+                moveSwitch = false;
+                handCallBigBox.style.transition = "";
+            }
+        }
+        // 结束拖拽
+    </script>
+</body>
+</html>
